@@ -46,4 +46,21 @@ if (count($out) > 0) {
     }
 }
 
+$str_form_search = "<h3>Поиск:</h3>
+			<form  name='searchForm' action='index.php' method='post' onSubmit='return overify_login(this);' >
+ 			 <input type='text' name='search'>
+ 			 <input type='submit' name='gosearch' value='Подтвердить'>
+ 			 <input type='submit' name='clear' value='Сбросить'>
+ 		     </form>";
+
+echo $str_form_search;
+if (isset($_POST['gosearch'])) {
+    $data = test_input($_POST['search']);
+    $out = out_search($data);
+}
+if (count($out) > 0) {
+    foreach ($out as $row) {
+        echo $row;
+    }
+}
 include "footer.php";
