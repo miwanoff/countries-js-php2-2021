@@ -7,6 +7,9 @@ if (isset($_POST["go"])) {
     $password = $_POST["pass"];
     if (check_autorize($login)) {
         echo "Hello  " . $login;
+        if (check_admin($login, $password)) {
+            echo "<a href='hello.php'>Show secret info</a>";
+        }
     } else {
         echo "Autorize error";
     }
