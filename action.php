@@ -11,3 +11,8 @@ function check_admin($log, $pass)
     global $users;
     return array_key_exists($log, $users) && $pass == $users['admin'];
 }
+
+function check_log($log)
+{
+    return $log == "admin";
+}
