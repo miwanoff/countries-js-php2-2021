@@ -32,7 +32,6 @@ $str_form_s = '<h3>Сортировать по:</h3>
 <input type="submit" name="submit" value="OK">
 </form>';
 echo $str_form_s;
-include "footer.php";
 
 if (isset($_POST['sort'])) {
     $how_to_sort = $_POST['sort'];
@@ -46,3 +45,5 @@ if (count($out) > 0) {
         echo $row;
     }
 }
+
+include "footer.php";
