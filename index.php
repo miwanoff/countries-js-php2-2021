@@ -36,4 +36,13 @@ include "footer.php";
 
 if (isset($_POST['sort'])) {
     $how_to_sort = $_POST['sort'];
+    sorting($how_to_sort);
+}
+
+$out = out_sort();
+
+if (count($out) > 0) {
+    foreach ($out as $row) {
+        echo $row;
+    }
 }
