@@ -2,7 +2,7 @@
 ob_start(); // Начало буфферизации
 include "header.php";
 include "action.php";
-if (isset($_SESSION["authorized"]) && check_admin($_GET['login'])) {
+if (check_autirize()) && check_admin($_GET['login'])) {
     $admin = $_GET['login'];
     //if (check_log($admin) == true) {
     echo "<h3>Привет,  $admin!</h3>";
