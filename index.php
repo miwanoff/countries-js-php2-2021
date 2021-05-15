@@ -27,13 +27,17 @@ $cont_end = ' </div>
     </div>
 </div>';
 echo $cont_start_12;
-$user_form = '<form action="index.php" method="post" name="autoForm">
+if (!isset($_SESSION["authorized"])) {
+    $user_form = '<form action="index.php" method="post" name="autoForm">
 Логин: <input type="text" name="login">
 Пароль: <input type="password" name="pass">
 <input type="submit" value="Подтвердить" name="go">
 </form>';
-echo $user_form;
-
+    echo $user_form;
+}
+else {
+    echo '<br><a href="logout.php">logout</a>';
+}
 echo $cont_end;
 echo $cont_start_row;
 echo $cont_start_4;
