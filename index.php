@@ -27,15 +27,14 @@ $cont_end = ' </div>
     </div>
 </div>';
 echo $cont_start_12;
-if (!isset($_SESSION["authorized"])) {
+if (!check_autirize()) {
     $user_form = '<form action="index.php" method="post" name="autoForm">
 Логин: <input type="text" name="login">
 Пароль: <input type="password" name="pass">
 <input type="submit" value="Подтвердить" name="go">
 </form>';
     echo $user_form;
-}
-else {
+} else {
     echo '<br><a href="logout.php">logout</a>';
 }
 echo $cont_end;
