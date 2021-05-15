@@ -1,15 +1,24 @@
 <?php
+session_start();
 include "db.php";
-function check_autorize($log)
+
+function check_user($log, $pas)
 {
     global $users;
-    return array_key_exists($log, $users);
+    if (array_key_exists($log, $users) && $pas == $users[$log]) {
+        $_SESSION["authorized"] = 1;
+        return true;
+    }
+    return false;
+}
+function check_autirize()
+{
+    return isset($_SESSION["authorized"]);
 }
 
-function check_admin($log, $pass)
+function check_admin($log)
 {
-    global $users;
-    return array_key_exists($log, $users) && $pass == $users['admin'];
+    return isset($_SESSION["authorized"]) && $log == "admin";
 }
 
 function check_log($log)
